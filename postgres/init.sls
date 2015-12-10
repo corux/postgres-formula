@@ -12,6 +12,8 @@ include:
     - group: postgres
     - dir_mode: 700
     - unless: test -f {{ postgres.conf_dir }}/PG_VERSION
+    - require:
+      - pkg: install-postgresql
 
 install-postgresql:
   pkg.installed:
