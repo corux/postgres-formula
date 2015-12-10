@@ -10,5 +10,9 @@ install-postgresql-repo:
     - file: {{ postgres.pkg_repo_file }}
     - require_in:
       - pkg: install-postgresql
+{% else %}
+install-postgresql-repo:
+  pkg.installed:
+    - sources:
+      - {{ postgres.pkg_repo_package }}: {{ postgres.pkg_repo_url }}
 {% endif %}
-

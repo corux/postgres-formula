@@ -1,6 +1,13 @@
 RedHat:
-  pkg_repo: pgdg94
-  repo_baseurl: http://yum.postgresql.org/9.4/redhat/rhel-$releasever-$basearch
+  use_upstream_repo: True
+  commands:
+    initdb: /usr/pgsql-9.4/bin/postgresql94-setup initdb
+  pkg_repo_package: pgdg-centos94
+  pkg_repo_url: http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-2.noarch.rpm
+  service: postgresql-9.4
+  conf_dir: /var/lib/pgsql/9.4/data
+  lookup:
+    pkg: postgresql94-server
 Arch: {}
 Debian:
   pkg_repo_file: /etc/apt/sources.list.d/pgdg.list
